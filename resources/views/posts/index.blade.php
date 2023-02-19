@@ -9,6 +9,7 @@
   <div class="form-group">
     {!! Form::input('text','newPost',null,['required','placeholder' => '投稿内容を入力してください。','class' => 'form-control']) !!}
   </div>
+  <p>テスト</p>
    <button type="submit" class="btn pull-right"></button>
    {!! Form::close()!!}
 </div>
