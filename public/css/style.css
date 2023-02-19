@@ -1,0 +1,94 @@
+@charset "utf-8";
+html{
+}
+body{
+}
+/* header */
+header{
+    background:#186AC9;
+}
+
+#head {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.atlas-logo {
+    height: 35px;
+}
+
+.header-username {
+    color: #FFF;
+}
+#header-item {
+    display: flex;
+}
+
+/* header-menu */
+    .header-btn {
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+    }
+
+    .header-btn span {
+        position: absolute;
+        display: block;
+        background: #fff;
+        height: 10%;
+        width: 50%;
+        transition: all 0.5s;
+        top: 50%;
+    }
+        /* .header-btn span:nth-child(1) */
+    .header-btn1 {
+        transform: rotate(-45deg) translateX(-6px);
+    }
+
+    .header-btn2 {
+        transform: rotate(45deg) translateX(6px);
+    }
+
+    .header-btn3 {
+        transform: rotate(45deg) translateX(-6px);
+    }
+
+    .header-btn4 {
+        transform: rotate(-45deg) translateX(6px);
+    }
+
+
+
+    #header-item img {
+        height: 40px;
+    }
+
+    ul {
+        display: block;
+        transform: translateY(-100px);
+        transition: all 0.5s;
+    }
+
+    .active {
+        transform: translateY(0);
+        transition: all 0.5s;
+    }
+/* //header-menu */
+
+
+/* main content */
+#row{
+    display: flex;
+    flex-flow: row wrap;
+}
+#container{
+    flex: 0 0 80%;
+}
+#side-bar{
+    flex: 0 0 19%;
+    border-left: 1px solid #727272;
+}
+
+/* //main content */
