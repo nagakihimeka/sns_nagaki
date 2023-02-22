@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2>機能を実装していきましょう。</h2>
+<h2>機能を実装していきましょう</h2>
 <!-- 20230208-下記を入れるとサイドバーがずれることを発見 -->
 <div class="container">
   {!! Form::open(['url' =>'posts/index']) !!}

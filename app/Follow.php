@@ -11,4 +11,8 @@ class Follow extends Model
 
     //テーブル名のセオリーを外れたのでテーブル名を定義
     protected $table = 'follows';
+
+
+
+
 }

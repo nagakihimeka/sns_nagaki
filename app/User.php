@@ -27,11 +27,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // フォロワー→フォロー（フォロワーを取得したい）
+
+    
+    // フォロー→フォロワー（フォローしているユーザーを取得したい）
     public function followUsers() {
         //第３引数に取得したい情報
-        return $this->belongsToMany('App\Post', 'follows', 'following_id', 'followed_id');
+        return $this->belongsToMany('App\User', 'follows', 'following_id', 'followed_id');
     }
+
+     // フォロワー→フォロー（フォロワーを取得したい）
+    public function  followers() {
+        return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
+    }
+
 
 
 }
