@@ -7,8 +7,8 @@
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
 
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -43,23 +43,27 @@
             </div>
         </div>
     </header>
+
     <div id="row">
         <div id="container">
+            <div class="border" style="border"></div>
             @yield('content')
+
         </div >
+
         <div id="side-bar">
             <div id="confirm">
                 <p>{{Auth::user()->username}}さんの</p>
-                <div>
-                <p>フォロー数</p>
+                <div class='side-follow'>
+                <p class=>フォロー数</p>
                 <p>{{Auth::user()->followUsers->count()}}名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
+                <p class="btn side-link-btn"><a href="/follow-list">フォローリスト</a></p>
+                <div class='side-follow'>
                 <p>フォロワー数</p>
                 <p>{{Auth::user()->followers->count()}}名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="btn side-link-btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>

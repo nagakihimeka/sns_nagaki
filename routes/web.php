@@ -38,10 +38,17 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'],function(){
 
      Route::get('/top','PostsController@index');
+     //投稿取得
+     Route::get('posts/index','PostsController@create');
+     Route::post('posts/index','PostsController@create');
 
     Route::get('/profile','UsersController@profile');
 
-    Route::get('/search','UsersController@index');
+    Route::get('/search','UsersController@index')->name('search');
+    //フォロー機能
+    Route::get('/search/{id}/follow','UsersController@follow');
+    //フォロー解除
+    Route::get('/search/{id}/remover','UsersController@remover');
 
     Route::get('/follow-list','PostsController@index');
     Route::get('/follower-list','PostsController@index');
@@ -49,8 +56,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/follow-list','FollowsController@followList');
     Route::get('/follower-list','FollowsController@followerList');
 
-    // //フォロー機能（ちょっと待て）
-    // Route::post('login', 'FollowsController@follow');
+
 
 
     Route::get('/logout', 'Auth\LoginController@logout');

@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
 
-    
+
     // フォロー→フォロワー（フォローしているユーザーを取得したい）
     public function followUsers() {
         //第３引数に取得したい情報
@@ -40,6 +40,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
     }
 
+   //投稿
+   public function post() {
+    return $this->belongsToMany('App\Post');
+   }
 
 
 }
