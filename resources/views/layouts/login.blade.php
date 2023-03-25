@@ -46,7 +46,7 @@
 
     <div id="row">
         <div id="container">
-            <div class="border" style="border"></div>
+            <!-- <div class="border" style="border"></div> -->
             @yield('content')
 
         </div >
@@ -65,6 +65,7 @@
                 </div>
                 <p class="btn side-link-btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
+            <div class="side-border"></div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>

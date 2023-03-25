@@ -29,15 +29,15 @@ class UsersController extends Controller
     //フォロー機能
     public function follow($id) {
         $user_id = Auth::user()->id;//自分のID
-        $follower_id = $id;//相手のID
-        $followed = \DB::table('follows')->where('followed_id', $follower_id)->where('following_id',$user_id)->exists();
+        $is_following = Auth::user()->isFollowing($id);
+        
 
-        if(!$followed) //フォローしていなかったら
+        if(!$is_following) //フォローしていなかったらフォローする
         \DB::table('follows')->insert([
-            'followed_id' => $follower_id,
+            'followed_id' => $id,
             'following_id' => $user_id
         ]);
-        return redirect('search')->with(compact('followed'));
+        return redirect('search');
     }
 
     //フォロー解除

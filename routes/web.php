@@ -37,14 +37,17 @@ Route::get('/', function () {
 //ログイン中のページ
 Route::group(['middleware' => 'auth'],function(){
 
+    // 投稿取得
      Route::get('/top','PostsController@index');
-     //投稿取得
-     Route::get('posts/index','PostsController@create');
      Route::post('posts/index','PostsController@create');
+
+     Route::get('posts/update','PostsController@update');
+     Route::post('posts/update','PostsController@update');
+     Route::get('posts/{id}/delete','PostsController@delete');
 
     Route::get('/profile','UsersController@profile');
 
-    Route::get('/search','UsersController@index')->name('search');
+    Route::get('/search','UsersController@index');
     //フォロー機能
     Route::get('/search/{id}/follow','UsersController@follow');
     //フォロー解除

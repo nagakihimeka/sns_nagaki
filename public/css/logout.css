@@ -5,6 +5,124 @@ html{
 }
 
 body{
+    background: linear-gradient(180deg,rgb(1, 106, 200)30%,rgb(115, 184, 213), rgb(243, 223, 57));
+    color: #fff;
     height: 100%;
-    background: #186AC9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    text-align: center;
+}
+
+.logout-logo img {
+    width: 150px;
+}
+
+header p {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+/* バリデーション */
+.error-messages {
+    margin-top: 20px;
+    color: red;
+    text-align-last: left;
+}
+.error-message {
+    margin: 5px 0;
+}
+
+/* login */
+#container {
+    background: rgb(75, 75, 75, 0.3);
+    width: 250px;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.login-forms {
+    text-align-last: left;
+    margin: 30px 0 15px 0;
+
+}
+
+.input {
+    display: block;
+}
+
+
+.login-form {
+    margin-top: 25px;
+    text-align-last: left;
+}
+.login-form-pass {
+    text-align: left;
+}
+
+.login-forms input {
+    box-shadow: none;
+    border: solid 1px #727272;
+    background: #fff;
+    padding: 12px 0;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 100%;
+    appearance: none;
+    color: #000;
+}
+
+.submit-button {
+    display: block;
+    margin: 0 0 0 auto;
+    background: #ed3b50;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    font-size: 17px;
+    padding: 10px 30px;
+
+}
+
+.link-button {
+    margin-top: 10px;
+}
+
+.link-button a {
+    color: #fff;
+
+}
+
+
+/* register */
+
+/* added */
+#clear {
+    padding: 30px 0;
+}
+
+.user-message {
+    font-weight: bold;
+}
+
+.login-message {
+    margin: 30px 0;
+}
+
+.return-button a{
+    background: #ed3b50;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    font-size: 17px;
+    padding: 15px 10px;
+    text-decoration: none;
 }
