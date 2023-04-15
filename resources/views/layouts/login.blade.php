@@ -6,8 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
+
+
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
 
     <!--スマホ,タブレット対応-->
@@ -58,19 +64,22 @@
                 <p class=>フォロー数</p>
                 <p>{{Auth::user()->followUsers->count()}}名</p>
                 </div>
-                <p class="btn side-link-btn"><a href="/follow-list">フォローリスト</a></p>
+                <p class="btn btn-primary"><a href="/follow-list">フォローリスト</a></p>
                 <div class='side-follow'>
                 <p>フォロワー数</p>
                 <p>{{Auth::user()->followers->count()}}名</p>
                 </div>
-                <p class="btn side-link-btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="btn btn-primary"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
             <div class="side-border"></div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="btn btn-primary"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="{{asset('js/script.js')}}"></script>

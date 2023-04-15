@@ -45,9 +45,16 @@ Route::group(['middleware' => 'auth'],function(){
      Route::post('posts/update','PostsController@update');
      Route::get('posts/{id}/delete','PostsController@delete');
 
+    Route::post('/profile','UsersController@profile');
     Route::get('/profile','UsersController@profile');
+    Route::post('/profile/update','UsersController@update');
+
+
 
     Route::get('/search','UsersController@index');
+    // 検索機能
+    Route::post('/search-result','UsersController@search');
+
     //フォロー機能
     Route::get('/search/{id}/follow','UsersController@follow');
     //フォロー解除
@@ -58,6 +65,9 @@ Route::group(['middleware' => 'auth'],function(){
     //上の手直し版
     Route::get('/follow-list','FollowsController@followList');
     Route::get('/follower-list','FollowsController@followerList');
+
+    // プロフィールページへ ※一旦保留
+    Route::get('/follower-list/{id}/profile','FollowsController@profile');
 
 
 

@@ -2,10 +2,14 @@
 html{
 }
 body{
+    background: #f5f8fa;
 }
 /* header */
 header{
     background:#186AC9;
+    position: fixed;
+    height: 80px;
+    width: 100%;
 }
 
 #head {
@@ -25,6 +29,9 @@ header{
     display: flex;
 }
 
+.post-container {
+
+}
 
 
 /* header-menu */
@@ -78,9 +85,6 @@ header{
 /* //header-menu */
 
 /* 共通 */
-.btn {
-    display: block;
-}
 
 .border{
     width: 100%;
@@ -92,23 +96,26 @@ header{
 }
 
 a {
-    background: #186AC9;
     text-decoration: none;
+}
+.btn-primary a {
     color: #fff;
-    font-size: 8px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    right: 0;
 }
 
 .container {
     width: 100%;
 }
 
+.top  {
+    border-bottom: 10px solid #E0E0E0;
+    display: flex;
+}
+
 /* main content */
 #row{
     display: flex;
     flex-flow: row wrap;
+    padding-top: 80px;
 }
 #container{
     flex: 0 0 79%;
@@ -143,24 +150,73 @@ a {
 
 /* //main content */
 
-.user-icon img{
 
 
+
+
+.send_button {
+    font-size: 25px;
 }
 
-/* top画面 */
-.post-buttons {
+.send_button i {
+    margin-top: 20px;
+}
+
+.form_top {
+    padding: 20px 40px 0 40px;
+}
+
+.form_top input {
+    background: #f5f8fa;
+    border: none;
+    padding: 20px 30px 70px 30px;
+    box-shadow: none;
+}
+
+
+
+/*////////////////////// top ///////////////////////*/
+.post_items {
+    transform: none;
+    padding: 0;
+}
+
+.post_item {
     display: flex;
-    margin-left: 90%;
+    border-bottom: 1px solid #000;
+    padding: 10px 10px 10px 100px;
 }
 
-.update-button {
+.post_icon img{
+    width: 50px;
+}
+
+.post_content {
+    width: 100%;
+    padding-left: 15px;
+}
+
+.post_head {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.post_buttons {
+    display: flex;
+    justify-content: end;
+}
+
+.update_button {
     margin-right: 10px;
+    font-size: 20px;
 }
 
+.delete_button {
+    font-size: 20px;
+}
 
 /* モーダル */
-/* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
 .content {
     margin: 0 auto;
     padding: 40px;
@@ -191,17 +247,116 @@ a {
     width: 60%;
 }
 
-/* top */
-.post-items {
-    transform: none;
+/*////////////////////// top ///////////////////////*/
+
+
+/*////////////////// search///////////////////// */
+.search_top {
+    padding: 30px 50px;
+    align-items: center;
 }
 
-.post-item {
-    display: flex;
-    border-bottom: 1px solid #000;
+.search_form  {
+    width: 350px;
+    padding: 10px 15px;
+    margin-right: 50px;
+    box-shadow: none;
+    border: solid 1px #727272;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 20px;
 }
 
-.post-head {
-    display: flex;
-    justify-content: space-between;
+.search_button {
+    background: #186AC9;
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    border-radius: 3px;
+    padding: 2px 10px;
 }
+
+.keyword {
+    font-size: 20px;
+    margin-left: 90px;
+}
+
+.search_list
+ {
+
+ }
+
+ .search_user {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    align-items: center;
+ }
+
+ .search_user_left
+ {
+    display: flex;
+    align-items: center;
+
+ }
+
+ .search_user_left img {
+    width: 50px;
+ }
+
+ .search_user_name
+ {
+    margin-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+
+ .search_user_right {
+
+ }
+
+  .unfollow_button {
+
+  }
+
+  .unfollow_button a {
+      border-radius: 6px;
+  }
+
+ .follow_button {
+
+ }
+
+ .follow_button a {
+    border-radius: 6px;
+    color: #fff;
+ }
+
+/*////////////////// search///////////////////// */
+
+
+ /*//////////// followList//////////// */
+
+ .follow_top {
+    padding: 20px 60px;
+ }
+ .follow_top p{
+    font-size: 30px;
+    width: 20%;
+ }
+
+ .follow_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+ }
+
+
+  .follow_list a{
+    margin-left: 10px;
+    width: calc(8%);
+  }
+
+   .follow_list a img{
+
+   }

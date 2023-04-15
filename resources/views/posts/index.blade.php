@@ -3,35 +3,46 @@
 @section('content')
 
 <!-- 20230208-下記を入れるとサイドバーがずれることを発見 -->
-<div class="container">
+<div class="post_container">
   {!! Form::open(['url' =>'posts/index']) !!}
-  <div class="form-group">
-    {!! Form::input('text','newPost',null,['required','placeholder' => '投稿内容を入力してください。','class' => 'form-control']) !!}
+  <div class="top form_top">
+    <div class="post_icon">
+      <img src="images/{{Auth::user()->images}}">
+    </div>
+    {!! Form::input('textarea','newPost',null,['required','placeholder' => '投稿内容を入力してください。','class' => 'form-control']) !!}
+     <button type="submit" class="btn send_button" onclick="submit();">
+       <i class="fas fa-paper-plane" style="color: #0d56d3;"></i>
+     </button>
 
   </div>
 
-  <button type="submit" class="btn pull-right">投稿</button>
-  <ul class="post-items">
+  <ul class="post_items">
     @foreach($posts as $post)
-    <li class="post-item">
-      <div class="post-icon">
+    <li class="post_item">
+      <div class="post_icon">
          <img src="images/{{$post->user->images}}">
-        <img src="images/icon2.png" alt="">
-        <img src="{{ asset('image/' . $post->user->images) }}" >
       </div>
-      <div>
-        <div class="post-head">
-          <p>名前：{{ $post->user->username }}</p>
-          <p>日付</p>
+      <div class="post_content">
+        <div class="post_head">
+          <p class="post_username">{{ $post->user->username }}</p>
+          <p class="post_date">{{ $post->updated_at}}</p>
         </div>
-        <p>投稿内容：{{ $post->post }}</p>
-        @if($user_id == $post->user_id)
-        <div class="post-buttons">
-          <div class="update-button"><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">編集</a></div>
-          <div class="delete-button"><a href="posts/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？') ? document.delete_form.submit() : false;">削除</a></div>
-        </div>
+        <p class="post_text">{{ $post->post }}</p>
+            @if($user_id == $post->user_id)
+            <div class="post_buttons">
+              <div class="update_button">
+                <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">
+                  <i class="fas fa-edit" style="color: #5dd2c8;"></i>
+              </a>
+            </div>
+              <div class="delete_button">
+                <a href="posts/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？') ? document.delete_form.submit() : false;">
+                  <i class="fas fa-trash-alt" style="color: #ed3833;"></i>
+                </a>
+              </div>
+            </div>
+      </div>
         @endif
-      </div>
     </li>
     @endforeach
 

@@ -17,8 +17,6 @@ class PostsController extends Controller
          // Postモデルに定義されているusersテーブルとのリレーションを定義しているuserメソッドにアクセスしuserの情報を取得
          //latest() 最新順に
         $posts = Post::with('user')->whereIn('user_id',$following_id)->orWhere('user_id',$user_id)->latest()->get();
-        
-        // $myPosts = Post::where('user_id',Auth::user()->id)->get();
 
         return view('posts.index',compact('posts','user_id'));
     }
