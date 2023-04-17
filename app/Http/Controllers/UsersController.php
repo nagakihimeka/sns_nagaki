@@ -23,7 +23,8 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password_confirm = $request->input('password-confirm');
         $bio = $request->input('bio');
-        $img = $request->image->store('public');
+        $img = $request->file('icon');
+        $img->storeAs('public', $img);
 
         User::where('id',$id)->update(['username' =>
         $username,'mail' => $mail,'bio' => $bio]);
