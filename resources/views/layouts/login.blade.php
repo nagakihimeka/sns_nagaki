@@ -31,7 +31,6 @@
     <header>
         <div id = "head">
         <h1><a href="{{ url('top')}}"><img class="atlas-logo" src="images/atlas.png"></a></h1>
-            <div id="">
                 <div id="header-item">
                     <p class="header-username">{{Auth::user()->username}}さん</p>
                     <div class="header-btn">
@@ -40,15 +39,9 @@
                     </div>
                     <img src="images/icon1.png">
                 <div>
-                <ul>
-                    <!-- アコーディオン -->
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/login">ログアウト</a></li>
-                </ul>
-            </div>
         </div>
     </header>
+
 
     <div id="row">
         <div id="container">
@@ -58,21 +51,30 @@
         </div >
 
         <div id="side-bar">
+
+      <ul class="menu">
+        <!-- アコーディオン -->
+        <li><a href="/top">ホーム</a></li>
+        <li><a href="/profile">プロフィール</a></li>
+        <li><a href="/login">ログアウト</a></li>
+      </ul>
+
             <div id="confirm">
                 <p>{{Auth::user()->username}}さんの</p>
                 <div class='side-follow'>
                 <p class=>フォロー数</p>
                 <p>{{Auth::user()->followUsers->count()}}名</p>
                 </div>
-                <p class="btn btn-primary"><a href="/follow-list">フォローリスト</a></p>
+                <p class="side_button"><a class="btn btn-primary" href="/follow-list">フォローリスト</a></p>
+
                 <div class='side-follow'>
                 <p>フォロワー数</p>
                 <p>{{Auth::user()->followers->count()}}名</p>
                 </div>
-                <p class="btn btn-primary"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="side_button"><a class="btn btn-primary" href="/follower-list">フォロワーリスト</a></p>
             </div>
             <div class="side-border"></div>
-            <p class="btn btn-primary"><a href="/search">ユーザー検索</a></p>
+            <p class="side_search_button"><a class="btn btn-primary" href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

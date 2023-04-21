@@ -23,11 +23,14 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password_confirm = $request->input('password-confirm');
         $bio = $request->input('bio');
-        $img = $request->file('icon');
-        $img->storeAs('public', $img);
+        $img_name = $request->file('icon')->getClientOriginalName();
+        $request->file('icon')->storeAs('', $img_name);
+
+
+
 
         User::where('id',$id)->update(['username' =>
-        $username,'mail' => $mail,'bio' => $bio]);
+        $username,'mail' => $mail,'bio' => $bio,'icon' => $img_name]);
 
         //パスワードのみ
         $user = Auth::user();

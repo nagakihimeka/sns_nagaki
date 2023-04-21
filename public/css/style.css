@@ -10,6 +10,7 @@ header{
     position: fixed;
     height: 80px;
     width: 100%;
+    z-index: 100;
 }
 
 #head {
@@ -31,6 +32,10 @@ header{
 
 .post-container {
 
+}
+
+a {
+    text-decoration: none;
 }
 
 
@@ -78,10 +83,7 @@ header{
         transition: all 0.5s;
     }
 
-    .active {
-        transform: translateY(0);
-        transition: all 0.5s;
-    }
+
 /* //header-menu */
 
 /* 共通 */
@@ -118,24 +120,39 @@ a {
     padding-top: 80px;
 }
 #container{
-    flex: 0 0 79%;
+    width: 79%;
 }
 #side-bar{
-    flex: 0 0 19%;
+    width: 21%;
     border-left: 1px solid #727272;
 }
 
 #confirm {
-    padding: 15px;
+    padding: 15px 18px 20px 18px;
+    font-size: 15px;
 }
 
 .side-follow {
     display: flex;
     position: relative;
+    margin-bottom: 15px;
 }
 
 .side-follow p {
     margin-right: 10px;
+}
+
+.side-button {
+    display: block;
+}
+
+.side_button a{
+    width: 140px;
+    display: block;
+    margin: 0 0 0 auto;
+    font-size: 15px;
+    padding: 6px 0;
+    border-radius: 6px;
 }
 
 .side-link-btn {
@@ -147,6 +164,57 @@ a {
     border-bottom: 1px solid #727272;
 }
 
+
+.side_search_button a{
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    margin-top: 20px;
+    font-size: 15px;
+    padding: 6px 0;
+    border-radius: 6px;
+    width: 150px;
+}
+
+
+
+.menu {
+    font-size: 23px;
+    text-align: center;
+    padding: 0;
+    right: 0;
+    z-index: 99;
+    transform: translateY(-300px);
+    position: fixed;
+    background: #f5f8fa;
+    width: 21%;
+}
+
+  .active {
+      transform: translateY(0);
+      transition: all 0.5s;
+  }
+
+.menu li {
+border: 1px solid #00297e;
+
+}
+
+
+.menu li a{
+    color: #848484;
+    display: block;
+    padding: 25px 0;
+}
+
+.menu li a:hover {
+    text-decoration: none;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+    background: #00297e;
+    width: 100%;
+}
 
 /* //main content */
 
@@ -360,3 +428,72 @@ a {
    .follow_list a img{
 
    }
+
+
+   /*////////// profile ////////////*/
+
+.profile {
+    text-align: center;
+}
+
+.profile_content {
+    display: flex;
+    font-size: 22px;
+    justify-content: center;
+    margin: 50px 0 30px 0;
+}
+
+.profile_icon {
+    margin-right: 50px;
+}
+
+.profile_icon img{
+
+}
+
+.profile_forms {
+
+}
+
+.profile_form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.profile_form p{
+
+}
+
+.profile form [type="text"] {
+    box-shadow: none;
+    border: solid 1px #727272;
+    background-color: #efefef;
+    padding: 4px;
+    appearance: none;
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    width: 60%;
+}
+
+.profile form [type="password"] {
+    box-shadow: none;
+    border: solid 1px #727272;
+    background-color: #efefef;
+    padding: 4px;
+    appearance: none;
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    width: 60%;
+}
+
+.profile_button {
+    box-shadow: none;
+    border: none;
+    font-size: 18px;
+    width: 160px;
+    height: 40px;
+    border-radius: 6px;
+}

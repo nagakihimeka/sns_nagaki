@@ -5,7 +5,7 @@
   {!! Form::open(['url' => '/profile/update','enctype' => "multipart/form-data"]) !!}
   <div class="profile_content">
     <div class="profile_icon">
-      <img src="" alt="">
+      <img src="" alt="アイコン">
     </div>
     <div class="profile_forms">
 
@@ -49,7 +49,7 @@
     @endif
  <!-- エラーエッセージ -->
 
-  <button type="submit">更新</button>
+  <button class="profile_button  btn-danger" type="submit">更新</button>
   {!! Form::close()!!}
 </div>
 
