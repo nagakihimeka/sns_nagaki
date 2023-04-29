@@ -13,7 +13,8 @@ class UsersController extends Controller
 {
 
     public function profile(){
-        return view('users.profile');
+        $user = Auth::user();
+        return view('users.profile',compact('user'));
     }
 
     // プロフィール更新
@@ -23,14 +24,14 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password_confirm = $request->input('password-confirm');
         $bio = $request->input('bio');
-        $img_name = $request->file('icon')->getClientOriginalName();
-        $request->file('icon')->storeAs('', $img_name);
-
-
+        // 画像名で取得
+        $img_name = $request->icon->getClientOriginalName();
+        $img = $request->icon->storeAs('', $img_name,'public');
 
 
         User::where('id',$id)->update(['username' =>
-        $username,'mail' => $mail,'bio' => $bio,'icon' => $img_name]);
+        $username,'mail' => $mail,'bio' => $bio,'images' => $img]);
+
 
         //パスワードのみ
         $user = Auth::user();
@@ -38,10 +39,18 @@ class UsersController extends Controller
         $user->save();
 
 
-
-
         return redirect('profile');
 
+    }
+
+
+    public function about ($id){
+        // ユーザー情報
+       $user = User::find($id);
+        //投稿取得
+        $posts = Post::where('user_id',$id)->get();
+
+        return view('users.user_profile',compact('user','posts'));
     }
 
 

@@ -5,18 +5,18 @@
   {!! Form::open(['url' => '/profile/update','enctype' => "multipart/form-data"]) !!}
   <div class="profile_content">
     <div class="profile_icon">
-      <img src="" alt="アイコン">
+      <img src="{{asset('storage/'.$user->images)}}" alt="{{$user->username}}アイコン">
     </div>
     <div class="profile_forms">
 
       <div class="profile_form">
         <p class="profile_label">user name</p>
-        {!! Form::text('username',null) !!}
+        {!! Form::text('username',old('username',$user->username)) !!}
 
       </div>
       <div class="profile_form">
-        <p class="profile_label">mail adress</p>
-        {!! Form::text('mail',null) !!}
+        <p class="profile_label">mail address</p>
+        {!! Form::text('mail',old('mail',$user->mail)) !!}
       </div>
       <div class="profile_form">
         <p class="profile_label">password</p>
@@ -28,7 +28,7 @@
       </div>
       <div class="profile_form">
         <p class="profile_label">bio</p>
-        {!! Form::text('bio',null) !!}
+        {!! Form::text('bio',old('bio',$user->bio)) !!}
       </div>
       <div class="profile_form">
         <p class="profile_label">icon image</p>

@@ -15,7 +15,7 @@
     @foreach($users as $user)
     <div class="search_user">
       <div class="search_user_left">
-        <img src="images/{{$user->images}}" alt=" {{$user->username}}アイコン">
+        <img src="{{asset('images/'.$user->images)}}" alt=" {{$user->username}}アイコン">
         <div class="search_user_name">{{$user->username}}</div>
       </div>
       <div class="search_user_right">

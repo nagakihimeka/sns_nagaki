@@ -13,7 +13,6 @@ class FollowsController extends Controller
     public function followList(){
         // フォローしているユーザーのid取得
         $following = Auth::user()->followUsers()->pluck('followed_id');
-
         //投稿を取得
         $posts = Post::with('user')->whereIn('user_id',$following)->latest()->get();
 
@@ -23,7 +22,6 @@ class FollowsController extends Controller
     public function followerList(){
           //自分をフォローしている人のid取得
         $follower = Auth::user()->followers()->pluck('following_id');
-
         $posts = Post::with('user')->whereIn('user_id',$follower)->latest()->get();
 
         return view('follows.followerList',compact('posts','follower'));

@@ -11,12 +11,15 @@ header{
     height: 80px;
     width: 100%;
     z-index: 100;
+    line-height: 80px;
 }
 
 #head {
     display: flex;
+    padding: 0 25px;
+    align-items: center;
+    height: inherit;
     justify-content: space-between;
-    padding: 10px 20px;
 }
 
 .atlas-logo {
@@ -25,9 +28,12 @@ header{
 
 .header-username {
     color: #FFF;
+    margin-right: 15px;
+    font-size: 20px;
 }
 #header-item {
     display: flex;
+    align-items: center;
 }
 
 .post-container {
@@ -45,6 +51,7 @@ a {
         width: 30px;
         height: 30px;
         position: relative;
+        margin-right: 15px;
     }
 
     .header-btn span {
@@ -54,23 +61,27 @@ a {
         height: 10%;
         width: 50%;
         transition: all 0.5s;
-        top: 50%;
+
     }
         /* .header-btn span:nth-child(1) */
     .header-btn1 {
-        transform: rotate(-45deg) translateX(-6px);
+        transform: rotate(-65deg) translateX(-6px);
+        top: 30%;
     }
 
     .header-btn2 {
-        transform: rotate(45deg) translateX(6px);
+        transform: rotate(65deg) translateX(6px);
+        top: 30%;
     }
 
     .header-btn3 {
-        transform: rotate(45deg) translateX(-6px);
+        transform: rotate(65deg) translateX(-6px);
+        top: 50%;
     }
 
     .header-btn4 {
-        transform: rotate(-45deg) translateX(6px);
+        transform: rotate(-65deg) translateX(6px);
+        top: 50%;
     }
 
     #header-item img {
@@ -114,6 +125,8 @@ a {
 }
 
 /* main content */
+
+
 #row{
     display: flex;
     flex-flow: row wrap;
@@ -426,7 +439,7 @@ border: 1px solid #00297e;
   }
 
    .follow_list a img{
-
+width: 100%;
    }
 
 
@@ -496,4 +509,38 @@ border: 1px solid #00297e;
     width: 160px;
     height: 40px;
     border-radius: 6px;
+}
+
+
+
+/*//////////////// user_profile/////////////// */
+
+.user_profile {
+    font-weight: bold;
+    padding: 20px 20px 20px 100px;
+}
+
+.icon img{
+    width: 50px;
+}
+
+.text {
+    padding-left: 15px;
+}
+
+.name {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.name p {
+    padding-right: 80px;
+}
+
+.bio {
+    display: flex;
+}
+
+.bio p {
+    padding-right: 80px;
 }
