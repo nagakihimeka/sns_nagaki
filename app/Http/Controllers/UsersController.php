@@ -8,6 +8,7 @@ use App\Follow;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use Redirect;
 
 class UsersController extends Controller
 {
@@ -19,25 +20,45 @@ class UsersController extends Controller
 
     // プロフィール更新
     public function update(Request $request) {
-        $id = Auth::user()->id;
-        $username = $request->input('username');
-        $mail = $request->input('mail');
-        $password_confirm = $request->input('password-confirm');
-        $bio = $request->input('bio');
-        // 画像名で取得
-        $img_name = $request->icon->getClientOriginalName();
-        $img = $request->icon->storeAs('', $img_name,'public');
 
+         // バリデーション
+        $validator = Validator::make($request->all(), [
+            'username' => 'required  | between:2,11',
+            'mail' => 'required|between:5,39|email:filter,dns|unique:users,mail',
+            'password' => 'nullable | regex:/^[a-zA-Z0-9]+$/ | between:8,19',
+            'password-confirm' => 'nullable | regex:/^[a-zA-Z0-9]+$/| between:8,19|same:password',
+            'bio' => 'nullable |max:150',
+            'icon' => 'nullable | nullable | mimes:jpg,png,bmp,gif,svg',
+        ]);
 
-        User::where('id',$id)->update(['username' =>
-        $username,'mail' => $mail,'bio' => $bio,'images' => $img]);
+        if ($validator->fails()) {
+            return redirect('/profile')
+                        ->withErrors($validator)
+                        ->withInput();
+        }else {
 
+            $id = Auth::user()->id;
+            $username = $request->input('username');
+            $mail = $request->input('mail');
+            $password_confirm = $request->input('password-confirm');
+            $bio = $request->input('bio');
+            $icon = $request->icon;
 
-        //パスワードのみ
-        $user = Auth::user();
-        $user->password = bcrypt($request->input('password'));
-        $user->save();
-
+            // アイコンあれば名前取得して変更
+            if(isset($icon)) {
+                 // 画像名で取得
+                $img_name = $request->icon->getClientOriginalName();
+                $img = $request->icon->storeAs('', $img_name,'public');
+                User::where('id',$id)->update(['images' => $img]);
+            }
+            // 変更処理（）
+            User::where('id',$id)->update(['username' =>
+            $username,'mail' => $mail,'bio' => $bio]);
+            //パスワードのみ
+            $user = Auth::user();
+            $user->password = bcrypt($request->input('password'));
+            $user->save();
+        }
 
         return redirect('profile');
 
@@ -92,7 +113,7 @@ class UsersController extends Controller
             'followed_id' => $id,
             'following_id' => $user_id
         ]);
-        return redirect('search');
+        return Redirect::back();
     }
 
     //フォロー解除
@@ -103,7 +124,7 @@ class UsersController extends Controller
             'followed_id' => $follower_id,
             'following_id' => $user_id
         ])->delete();
-        return redirect('search');
+        return Redirect::back();
     }
 
 

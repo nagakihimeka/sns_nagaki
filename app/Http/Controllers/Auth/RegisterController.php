@@ -123,7 +123,7 @@ class RegisterController extends Controller
             $this->create($data);//リクエストの取得
             $username = $request->get('username');// セッションの取得
             return redirect('added')->with('username',$username); // フラッシュメッセージ
-           
+
         }
 
         return view('auth.register');

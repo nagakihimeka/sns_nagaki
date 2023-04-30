@@ -61,7 +61,9 @@ class LoginController extends Controller
                         ->withInput();
         }
         //バリデーション
-           $data=$request->only('mail','password');
+
+
+            $data=$request->only('mail','password');
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){

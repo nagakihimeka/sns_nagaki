@@ -1,3 +1,13 @@
+// アイコンアップロード名
+$('.fileinput').on('change', function () {
+  //propを使って、file[0]にアクセスする
+  var file = $(this).prop('files')[0];
+  //text()で要素内のテキストを変更する
+  $('.filename').text(file.name);
+});
+
+
+
 //アコーディオンメニュー
 $(function () {
   $('.header-btn').click(function () {

@@ -32,14 +32,19 @@
       </div>
       <div class="profile_form">
         <p class="profile_label">icon image</p>
-        {!! Form::file('icon',null) !!}
+        <label class="file_label" id="file_label">
+          {!! Form::file('icon',['class' => 'fileinput']) !!}
+          <span class="filename">ファイルを選択</span>
+        </label>
       </div>
 
     </div>
   </div>
+
   <!-- エラーエッセージ -->
- @if (count($errors) > 0)
-    <div>
+  <div class="profile_mess">
+     @if (count($errors) > 0)
+    <div class="profile_error">
         <ul class="error-messages">
             @foreach ($errors->all() as $error )
                 <li class="error-message">{{ $error }}</li>
@@ -47,6 +52,7 @@
         </ul>
     </div>
     @endif
+  </div>
  <!-- エラーエッセージ -->
 
   <button class="profile_button  btn-danger" type="submit">更新</button>
