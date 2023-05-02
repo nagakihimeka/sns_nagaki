@@ -6,7 +6,11 @@
   {!! Form::open(['url' =>'posts/index']) !!}
   <div class="top form_top">
     <div class="post_icon">
-      <img src="images/{{Auth::user()->images}}">
+      @if(Auth::user()->images == 'dawn.png')
+        <img src="{{asset('images/icon1.png')}}" alt="{{Auth::user()->username}}">
+      @else
+      <img src="images/{{Auth::user()->images}}" alt="{{Auth::user()->username}}">
+      @endif
     </div>
     {!! Form::input('textarea','newPost',null,['required','placeholder' => '投稿内容を入力してください。','class' => 'form-control']) !!}
      <button type="submit" class="btn send_button" onclick="submit();">
@@ -27,7 +31,11 @@
     @foreach($posts as $post)
     <li class="post_item">
       <div class="post_icon">
-         <img src="images/{{$post->user->images}}">
+        @if($post->user->images == 'dawn.png')
+          <img src="{{asset('images/icon1.png')}}" alt="{{$post->user->username}}">
+         @else
+         <img src="images/{{$post->user->images}}" alt="{{$post->user->username}}">
+         @endif
       </div>
       <div class="post_content">
         <div class="post_head">

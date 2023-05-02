@@ -22,7 +22,7 @@
 <body>
   <div class="logout">
   <header>
-    <h1 class="logout-logo"><img src="images/atlas.png"></h1>
+    <h1 class="logout-logo"><img src="images/atlas.png" alt="Atlas"></h1>
     <p>Social Network Service</p>
   </header>
   <div id="container">

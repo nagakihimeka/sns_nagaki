@@ -5,7 +5,12 @@
   <p>Folow List</p>
   <div class="follow_list">
     @foreach($users as $user)
-      <a href="/profile/{{$user->id}}"><img src="{{asset('images/'.$user->images)}}" alt="{{$user->username}}アイコン">
+      <a href="/profile/{{$user->id}}">
+        @if($user->images == 'dawn.png')
+          <img src="{{asset('images/icon1.png')}}" alt="">
+        @else
+          <img src="{{asset('images/'.$user->images)}}" alt="{{$user->username}}アイコン">
+          @endif
       </a>
     @endforeach
   </div>
@@ -16,7 +21,11 @@
     <li class="post_item">
       <div class="post_icon">
          <a href="/profile/{{$post->user_id}}">
+          @if($user->images == 'dawn.png')
+            <img src="{{asset('images/icon1.png')}}" alt="">
+          @else
           <img src="{{asset('images/'.$post->user->images)}}">
+          @endif
           </a>
       </div>
       <div class="post_content">

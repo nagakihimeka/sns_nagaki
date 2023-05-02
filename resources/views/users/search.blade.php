@@ -15,7 +15,11 @@
     @foreach($users as $user)
     <div class="search_user">
       <div class="search_user_left">
-        <img src="{{asset('images/'.$user->images)}}" alt=" {{$user->username}}アイコン">
+        @if($user->images == 'dawn.png')
+          <img src="{{asset('images/icon1.png')}}" alt="{{$user->username}}">
+        @else
+          <img src="{{asset('images/'.$user->images)}}" alt=" {{$user->username}}">
+        @endif
         <div class="search_user_name">{{$user->username}}</div>
       </div>
       <div class="search_user_right">

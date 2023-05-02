@@ -30,14 +30,18 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="{{ url('top')}}"><img class="atlas-logo" src="{{asset('images/atlas.png')}}"></a></h1>
+        <h1><a href="{{ url('top')}}"><img class="atlas-logo" src="{{asset('images/atlas.png')}}" alt='Atlas'></a></h1>
                 <div id="header-item">
                     <p class="header-username">{{Auth::user()->username}}さん</p>
                     <div class="header-btn">
                     <span class="header-btn1"></span>
                     <span class="header-btn2"></span>
                     </div>
-                    <img src="{{asset('images/'.Auth::user()->images)}}">
+                    @if(Auth::user()->images == 'dawn.png')
+                    <img src="{{asset('images/icon1.png')}}" alt="{{Auth::user()->username}}">
+                    @else
+                    <img src="{{asset('images/'.Auth::user()->images)}}" alt="{{Auth::user()->username}}">
+                    @endif
                 <div>
         </div>
     </header>

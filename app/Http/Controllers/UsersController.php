@@ -8,6 +8,7 @@ use App\Follow;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use Illuminate\Validation\Rule;
 use Redirect;
 
 class UsersController extends Controller
@@ -24,9 +25,9 @@ class UsersController extends Controller
          // バリデーション
         $validator = Validator::make($request->all(), [
             'username' => 'required  | between:2,11',
-            'mail' => 'required|between:5,39|email:filter,dns|unique:users,mail',
-            'password' => 'nullable | regex:/^[a-zA-Z0-9]+$/ | between:8,19',
-            'password-confirm' => 'nullable | regex:/^[a-zA-Z0-9]+$/| between:8,19|same:password',
+            'mail' => ['required','between:5,39','email:filter,dns', Rule::unique('users')->ignore(Auth::id())],
+            'password' => 'required | regex:/^[a-zA-Z0-9]+$/ | between:8,19',
+            'password-confirm' => 'required | regex:/^[a-zA-Z0-9]+$/| between:8,19|same:password',
             'bio' => 'nullable |max:150',
             'icon' => 'nullable | nullable | mimes:jpg,png,bmp,gif,svg',
         ]);

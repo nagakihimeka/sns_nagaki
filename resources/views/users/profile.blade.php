@@ -5,7 +5,11 @@
   {!! Form::open(['url' => '/profile/update','enctype' => "multipart/form-data"]) !!}
   <div class="profile_content">
     <div class="profile_icon">
-      <img src="{{asset('storage/'.$user->images)}}" alt="{{$user->username}}アイコン">
+      @if($user->images == 'dawn.png')
+        <img src="{{asset('images/icon1.png')}}" alt="{{$user->username}}">
+      @else
+      <img src="{{asset('images/'.$user->images)}}" alt="{{$user->username}}">
+      @endif
     </div>
     <div class="profile_forms">
 
