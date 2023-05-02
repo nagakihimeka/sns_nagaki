@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="top follow_top">
-  <p>Folower List</p>
+  <p>FolLower List</p>
   <div class="follow_list">
     @foreach($users as $user)
       <a href="/profile/{{$user->id}}">

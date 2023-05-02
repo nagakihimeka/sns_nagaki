@@ -46,7 +46,7 @@
   </div>
 
   <!-- エラーエッセージ -->
-  <div class="profile_mess">
+  <div class="profile_message">
      @if (count($errors) > 0)
     <div class="profile_error">
         <ul class="error-messages">

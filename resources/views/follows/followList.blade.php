@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="top follow_top">
-  <p>Folow List</p>
+  <p>FolLow List</p>
   <div class="follow_list">
     @foreach($users as $user)
       <a href="/profile/{{$user->id}}">
@@ -21,10 +21,10 @@
     <li class="post_item">
       <div class="post_icon">
          <a href="/profile/{{$post->user_id}}">
-          @if($user->images == 'dawn.png')
+          @if($post->user->images == 'dawn.png')
             <img src="{{asset('images/icon1.png')}}" alt="">
           @else
-          <img src="{{asset('images/'.$post->user->images)}}">
+           <img src="{{asset('images/'.$post->user->images)}}">
           @endif
           </a>
       </div>

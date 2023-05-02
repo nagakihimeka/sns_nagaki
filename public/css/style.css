@@ -591,8 +591,9 @@ width: 100%;
     border-radius: 6px;
 }
 
-.profile_mess {
+.profile_message {
     height: 50px;
+    color: red;
 }
 
 .profile_error ul {
