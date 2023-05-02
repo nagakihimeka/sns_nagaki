@@ -69,9 +69,8 @@ class LoginController extends Controller
             if(Auth::attempt($data)){
                 return redirect('/top');
             }
-            return back()->withError([
-                'login-error' => 'mailかpasswordが間違っています'
-            ]);
+           return redirect('login')->with('error', "パスワードかメールアドレスが
+           間違っています");
         }
         return view("auth.login");
     }

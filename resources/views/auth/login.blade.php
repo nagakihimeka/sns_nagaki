@@ -19,6 +19,14 @@
         </div>
         @endif
     <!-- エラーエッセージ -->
+    <!-- ロッグイン失敗 -->
+    @if (session('error'))
+            <div class="login_error">
+                <p>{!! nl2br(e(session('error'))) !!}</p>
+            </div>
+        @endif
+        <!-- ロッグイン失敗 -->
+
 
     <div class="login-forms">
         <div class="login-form">

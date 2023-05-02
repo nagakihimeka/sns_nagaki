@@ -32,10 +32,17 @@ header p {
 .error-messages {
     margin-top: 20px;
     color: red;
-    text-align-last: left;
+    text-align-last: center;
 }
 .error-message {
     margin: 5px 0;
+}
+
+.login_error {
+    font-size: 15px;
+    color: red;
+    padding-top: 25px;
+
 }
 
 /* login */
@@ -116,7 +123,9 @@ header p {
 
 .login-message {
     margin: 30px 0;
+    text-align: center;
 }
+
 
 .return-button a{
     background: #ed3b50;
