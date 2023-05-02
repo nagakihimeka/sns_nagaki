@@ -70,7 +70,7 @@
   <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-                {!! Form::textarea('model_post',null,['class' => 'modal_post']) !!}
+                {!! Form::textarea('model_post',old('newPost'),['class' => 'modal_post']) !!}
                 {!! Form::hidden('modal_id',null,['class' => 'modal_id']) !!}
                 <label for="">
                   <button type="submit" ><img src="images/edit.png" alt="更新"></button>
