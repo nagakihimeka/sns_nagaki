@@ -4,8 +4,8 @@
 <div class="top follow_top">
   <p>Folower List</p>
   <div class="follow_list">
-    @foreach($posts as $post)
-      <a href="/follower-list/{{$post}}/profile"><img src="{{asset('images/'.$post->user->images)}}" alt=" {{$post->user->username}}アイコン">
+    @foreach($users as $user)
+      <a href="/profile/{{$user->id}}"><img src="{{asset('images/'.$user->images)}}" alt="{{$user->username}}アイコン">
       </a>
     @endforeach
   </div>

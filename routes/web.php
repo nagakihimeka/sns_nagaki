@@ -67,7 +67,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/follow-list','FollowsController@followList');
     Route::get('/follower-list','FollowsController@followerList');
 
-    // プロフィールページへ ※一旦保留
+    // プロフィールページへ
     Route::get('/follower-list/{id}/profile','FollowsController@profile');
 
 

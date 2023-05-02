@@ -23,11 +23,21 @@ class PostsController extends Controller
 
     //投稿
     public function create(Request $request) {
+         //バリデーション
+        $validator = Validator::make($request->all(),[
+            'newPost' => 'required | between:1,200'
+        ]);
+        if ($validator->fails()) {
+            return redirect('top')
+            ->withErrors($validator)// Validatorインスタンスの値を$errorsへ保存
+            ->withInput();// 送信されたフォームの値をInput::old()へ引き継ぐ
+        }
         $post = $request->input('newPost');
         Post::create(['post'=>$post,'user_id'=>Auth::id()]);
         return redirect('top');
 
     }
+
     //投稿編集
     public function update(Request $request) {
         $id = $request->input('modal_id');
@@ -35,7 +45,7 @@ class PostsController extends Controller
 
         //バリデーション
         $validator = Validator::make($request->all(),[
-            'model_post' => 'required | max:2'
+            'model_post' => 'required | max:150'
         ]);
         if ($validator->fails()) {
             return redirect('top')
@@ -47,8 +57,6 @@ class PostsController extends Controller
         Post::where('id', $id)->update(['post' => $post]);
         // 3つ目の処理
         return redirect('top');
-
-
 
 
     }

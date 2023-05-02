@@ -40,6 +40,7 @@ class UsersController extends Controller
             $id = Auth::user()->id;
             $username = $request->input('username');
             $mail = $request->input('mail');
+            $password = $request->input('password');
             $password_confirm = $request->input('password-confirm');
             $bio = $request->input('bio');
             $icon = $request->icon;
@@ -55,9 +56,12 @@ class UsersController extends Controller
             User::where('id',$id)->update(['username' =>
             $username,'mail' => $mail,'bio' => $bio]);
             //パスワードのみ
-            $user = Auth::user();
-            $user->password = bcrypt($request->input('password'));
-            $user->save();
+            if(isset($password)) {
+                $user = Auth::user();
+                $user->password = bcrypt($password);
+                $user->save();
+            }
+
         }
 
         return redirect('profile');

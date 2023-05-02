@@ -2,7 +2,6 @@
 
 @section('content')
 
-<!-- 20230208-下記を入れるとサイドバーがずれることを発見 -->
 <div class="post_container">
   {!! Form::open(['url' =>'posts/index']) !!}
   <div class="top form_top">
@@ -11,8 +10,16 @@
     </div>
     {!! Form::input('textarea','newPost',null,['required','placeholder' => '投稿内容を入力してください。','class' => 'form-control']) !!}
      <button type="submit" class="btn send_button" onclick="submit();">
-       <i class="fas fa-paper-plane" style="color: #0d56d3;"></i>
+       <img src="images/post.png" alt="投稿">
      </button>
+    @if (count($errors) > 0)
+        <div class="post_error">
+                @foreach ($errors->all() as $error )
+                    <p>{{ $error }}</p>
+                @endforeach
+        </div>
+        @endif
+
 
   </div>
 
@@ -32,12 +39,13 @@
             <div class="post_buttons">
               <div class="update_button">
                 <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">
-                  <i class="fas fa-edit" style="color: #5dd2c8;"></i>
+                <img src="images/edit.png" alt="更新">
               </a>
             </div>
               <div class="delete_button">
                 <a href="posts/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？') ? document.delete_form.submit() : false;">
-                  <i class="fas fa-trash-alt" style="color: #ed3833;"></i>
+                  <img src="images/trash.png" alt="削除">
+
                 </a>
               </div>
             </div>
@@ -49,24 +57,20 @@
   {!! Form::close()!!}
 </ul>
   <!-- モーダル中身 -->
-    @if (count($errors) > 0)
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error )
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+
    {!! Form::open(['url' => 'posts/update']) !!}
   <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
                 {!! Form::textarea('model_post',null,['class' => 'modal_post']) !!}
                 {!! Form::hidden('modal_id',null,['class' => 'modal_id']) !!}
-                <button type="submit" >更新</button>
+                <label for="">
+                  <button type="submit" ><img src="images/edit.png" alt="更新"></button>
+
+                </label>
+
+
                 {{ csrf_field() }}
-           <a class="js-modal-close" href="">閉じる</a>
         </div>
     </div>
 

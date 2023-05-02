@@ -242,12 +242,9 @@ border: 1px solid #00297e;
     font-size: 25px;
 }
 
-.send_button i {
-    margin-top: 20px;
-}
-
 .form_top {
     padding: 20px 40px 0 40px;
+    position: relative;
 }
 
 .form_top input {
@@ -257,9 +254,25 @@ border: 1px solid #00297e;
     box-shadow: none;
 }
 
+.form_top img {
+    width: 70px;
+}
+
+.post_error {
+    position: absolute;
+    color: red;
+    right: 0;
+    padding-right: 75px;
+    bottom: 0;
+}
+
+
+
 
 
 /*////////////////////// top ///////////////////////*/
+
+
 .post_items {
     transform: none;
     padding: 0;
@@ -296,8 +309,16 @@ border: 1px solid #00297e;
     font-size: 20px;
 }
 
+.update_button img {
+    width: 23px;
+}
+
 .delete_button {
     font-size: 20px;
+}
+
+.delete_button img {
+    width: 23px;
 }
 
 /* モーダル */
@@ -315,22 +336,54 @@ border: 1px solid #00297e;
 }
 
 .modal__bg {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.3);
     height: 100vh;
     position: absolute;
     width: 100%;
 }
 
 .modal__content {
+    border-radius: 10px;
     background: #fff;
     left: 50%;
-    padding: 40px;
+    padding: 40px 40px 10px 40px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
 }
 
+.modal__content textarea {
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid  #727272;
+    background: inherit;
+    appearance: none;
+    border-radius: 0;
+    padding: 10px;
+}
+
+.modal__content label{
+    position: relative;
+    width: 100%;
+    text-align: right;
+}
+
+.modal__content button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+}
+
+.modal__content img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 23px;
+
+}
 /*////////////////////// top ///////////////////////*/
 
 
@@ -365,14 +418,13 @@ border: 1px solid #00297e;
     margin-left: 90px;
 }
 
-.search_list
- {
-
- }
+.search_list {
+    padding: 0 30%;
+}
 
  .search_user {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 20px 0;
     align-items: center;
  }
